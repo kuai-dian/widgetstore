@@ -1,0 +1,12 @@
+{
+  "include": ["lib/**/*.ts", "lib/**/*.d.ts"],
+  "compilerOptions": {
+    "isolatedModules": true,
+    "types": ["vite/client", "node"],
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": false,
+    "outDir": "./types",
+    "emitDeclarationOnly": true
+  }
+}

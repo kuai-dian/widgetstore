@@ -1,0 +1,6 @@
+{
+  "name": "@cloudbase/js-sdk/storage",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts"
+}

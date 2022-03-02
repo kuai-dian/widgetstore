@@ -1,0 +1,7 @@
+{
+  "name": "@notion-pet/fe",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
