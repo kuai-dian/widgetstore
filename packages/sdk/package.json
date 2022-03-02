@@ -35,5 +35,6 @@
     "typescript": "^4.5.4",
     "vite": "^2.7.12",
     "vite-plugin-dts": "^0.9.9"
-  }
+  },
+  "gitHead": "27cc4a4a3c27cf08404e2c1a258e6598387caba8"
 }

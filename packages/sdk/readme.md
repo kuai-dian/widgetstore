@@ -1,8 +1,3 @@
----
-title: 关于
-toc: menu
----
-
 # 关于
 
 ## 什么是 `@notion-pet/sdk`？
