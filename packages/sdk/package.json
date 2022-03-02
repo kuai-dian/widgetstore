@@ -1,8 +1,8 @@
 {
   "name": "@notion-pet/sdk",
-  "title": "notionPet sdk",
+  "title": "@notion-pet/sdk",
   "version": "0.0.2",
-  "description": "",
+  "description": "notionPet sdk",
   "files": [
     "dist"
   ],
@@ -27,7 +27,7 @@
     "start": "vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "胡俊平",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^17.0.9",
@@ -36,5 +36,5 @@
     "vite": "^2.7.12",
     "vite-plugin-dts": "^0.9.9"
   },
-  "gitHead": "27cc4a4a3c27cf08404e2c1a258e6598387caba8"
+  "gitHead": "dcd23eb924f0a288b53a18a01660c7d5717c7946"
 }

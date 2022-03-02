@@ -1,6 +1,7 @@
 {
   "name": "@notion-pet/fe",
   "private": true,
+  "license": "ISC",
   "devDependencies": {
     "lerna": "^4.0.0"
   }
