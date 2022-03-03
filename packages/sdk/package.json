@@ -1,23 +1,24 @@
 {
-  "name": "@notion-pet/sdk",
-  "title": "@notion-pet/sdk",
+  "name": "@notionpet/sdk",
+  "title": "@notionpet/sdk",
   "version": "0.0.4",
+  "private": false,
   "description": "notionPet sdk",
   "files": [
     "dist"
   ],
-  "main": "./dist/@notion-pet/sdk.umd.js",
-  "module": "./dist/@notion-pet/sdk.es.js",
+  "main": "./dist/@notionpet/sdk.umd.js",
+  "module": "./dist/@notionpet/sdk.es.js",
   "types": "./dist/sdk.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/@notion-pet/sdk.es.js",
-      "require": "./dist/@notion-pet/sdk.umd.js",
+      "import": "./dist/@notionpet/sdk.es.js",
+      "require": "./dist/@notionpet/sdk.umd.js",
       "types": "./dist/sdk.d.ts"
     },
     "./dist/*": {
-      "import": "./dist/@notion-pet/sdk.es.js",
-      "require": "./dist/@notion-pet/sdk.umd.js",
+      "import": "./dist/@notionpet/sdk.es.js",
+      "require": "./dist/@notionpet/sdk.umd.js",
       "types": "./dist/sdk.d.ts"
     }
   },
@@ -36,5 +37,5 @@
     "vite": "^2.7.12",
     "vite-plugin-dts": "^0.9.9"
   },
-  "gitHead": "6458b408b5d84d812c8cf407ce0e2343495c40dc"
+  "gitHead": "69514ae7bd6a258930f3b2a6df7dfcc5cf283bd9"
 }
