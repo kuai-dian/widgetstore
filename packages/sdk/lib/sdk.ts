@@ -15,7 +15,7 @@ type IRender = (IRenderProps: IRenderProps) => void
 export const defineRender = (render: IRender, isRenderingNow: boolean = false) => {
   const {bind, call} = useSubscribe()
   bind('onRenderWidget', render)
-  isRenderingNow && render({options: {}, data: {}})
+  isRenderingNow && render({options: undefined, data: undefined})
   call('onWidgetsRenderDone')
 }
 
