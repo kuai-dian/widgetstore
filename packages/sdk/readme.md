@@ -12,15 +12,19 @@
 
 **使用示例**
 
-defineRender
+defineRender(render, 是否立刻渲染) 定义渲染函数
+ * @param render {IRender} 渲染函数
+ * @param isRenderingNow {boolean} 是否立即渲染，建议生产不使用，开发阶段将其设置为true
 
 ```ts
 import { defineRender } from '@notion-pet/sdk';
 import { render } from 'preact';
 
+const isDev = process.env.NODE_ENV === 'development'
+
 defineRender(({options: {}, data: {}}) => {
   render(<App options={options} data={data} />)
-})
+}, isDev)
 ```
 
 ### defineUpdate

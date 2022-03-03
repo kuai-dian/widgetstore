@@ -1,9 +1,13 @@
 {
   "name": "@notionpet/sdk",
   "title": "@notionpet/sdk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
-  "description": "notionPet sdk",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "description": "notionpet sdk",
   "files": [
     "dist"
   ],
