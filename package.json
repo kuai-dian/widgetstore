@@ -2,6 +2,10 @@
   "name": "@notion-pet/fe",
   "private": true,
   "license": "ISC",
+  "scripts": {
+    "build": "lerna bootstrap && lerna run build",
+    "publish": "lerna publish"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   }
