@@ -25,5 +25,5 @@ export const defineRender = (render: IRender, isRenderingNow: boolean = false) =
  */
 export const defineUpdate = (update: IRender) => {
   const {bind} = useSubscribe()
-  bind('onRenderWidget', update)
+  bind('onWeightUpdate', update)
 }
