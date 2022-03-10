@@ -1,13 +1,21 @@
 {
   "name": "@notionpet/sdk",
   "title": "@notionpet/sdk",
+  "keywords": [
+    "notion",
+    "notionpet",
+    "@notion",
+    "@notionpet",
+    "notion sdk"
+  ],
   "version": "0.1.3",
   "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "description": "notionpet sdk",
+  "repository": "https://github.com/kuai-dian/notion-pet/tree/master/packages/sdk",
+  "description": "@notionpet/sdk 是开发组件用的工具包, 结合 Notion.pet 平台，开发好后的组件可以发布到该平台然后通过 embed 嵌入notion软件中.",
   "files": [
     "dist"
   ],

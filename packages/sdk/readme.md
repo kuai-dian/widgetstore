@@ -2,7 +2,7 @@
 
 ## 什么是 `@notionpet/sdk`？
 
-`@notion-pet/sdk` 是开发组件用的工具包。
+`@notionpet/sdk` 是开发组件用的工具包, 结合 Notion.pet 平台，开发好后的组件可以发布到该平台然后通过 embed 嵌入notion软件中。
 
 ## 🏄‍♀️  组件渲染流程
 
@@ -115,3 +115,4 @@ export default () => {
 - [Vue3模板](https://github.com/kuai-dian/notionpet-vue3-starter)
 - [React模板](https://github.com/kuai-dian/notionpet-react-starter)
 - [PReact模板](https://github.com/kuai-dian/notionpet-preact-starter)
+- [Lit模板 不推荐](https://github.com/kuai-dian/notionpet-lit-starter)
