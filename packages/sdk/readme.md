@@ -65,7 +65,7 @@ export default () => {
 
 **使用示例**
 
-update
+update 更新方法
 
 ```ts
 import { api } from '@notion-pet/sdk';
@@ -77,6 +77,30 @@ export default () => {
   const onClick = () => {
     setState({value: ++state.value})
     api.update(state)
+  }
+
+  return <div onClick={onClick}>
+    {state.value}
+  </div>
+}
+```
+
+get 获取数据方法
+
+```ts
+import { api } from '@notion-pet/sdk';
+import { useState } from 'preact/hooks';
+
+export default () => {
+  const [state, setState] = useState({value: 1})
+
+  const onClick = async () => {
+    try {
+      const {data} = await api.get()
+      setState({value: data.value})
+    } catch(error) {
+      console.error(error)
+    }
   }
 
   return <div onClick={onClick}>
