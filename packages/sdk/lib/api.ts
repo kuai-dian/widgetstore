@@ -17,3 +17,18 @@ export const get = () => new Promise((resolve, reject) => {
   const {call} = useSubscribe()
   call('onGetWidgetData', resolve, reject)
 })
+
+/**
+ * 代理axios请求方法
+ * @param config {any} axios配置
+ */
+export const axios = (config: any = {}) => new Promise((resolve, reject) => {
+  const {call} = useSubscribe()
+  call('onRequestWithAxios', config, (params) => {
+    if (params.success) {
+      resolve(params)
+    } else {
+      reject(params)
+    }
+  })
+})

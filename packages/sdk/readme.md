@@ -2,7 +2,7 @@
 
 ## 什么是 `@notionpet/sdk`？
 
-`@notionpet/sdk` 是开发组件用的工具包, 结合 Notion.pet 平台，开发好后的组件可以发布到该平台然后通过 embed 嵌入notion软件中。
+`@notionpet/sdk` 是开发组件用的工具包, 结合 [Notion.pet](https://Notion.pet) 平台，开发好后的组件可以发布到该平台然后通过 embed 嵌入notion软件中。
 
 ## 🏄‍♀️  组件渲染流程
 
@@ -106,6 +106,22 @@ export default () => {
   return <div onClick={onClick}>
     {state.value}
   </div>
+}
+```
+
+axios 代理axios接口请求方法
+
+```ts
+import { api } from '@notion-pet/sdk';
+
+try {
+  const data = await api.axios({
+    method: 'get',
+    url: 'http://www.baidu.com',
+    // ...more axios config
+  })
+} catch(error) {
+  console.error(error)
 }
 ```
 
