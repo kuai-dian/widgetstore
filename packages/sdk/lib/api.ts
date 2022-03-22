@@ -15,7 +15,7 @@ export const update = (props: any) => {
  */
 export const get = () => new Promise((resolve, reject) => {
   const {call} = useSubscribe()
-  call('onGetWidgetData', resolve, reject)
+  call('onGetWidgetData', {resolve, reject})
 })
 
 /**
@@ -24,11 +24,11 @@ export const get = () => new Promise((resolve, reject) => {
  */
 export const axios = (config: any = {}) => new Promise((resolve, reject) => {
   const {call} = useSubscribe()
-  call('onRequestWithAxios', config, (params) => {
+  call('onRequestWithAxios', {config, callback: (params) => {
     if (params.success) {
       resolve(params)
     } else {
       reject(params)
     }
-  })
+  }})
 })
