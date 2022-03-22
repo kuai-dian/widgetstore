@@ -20,7 +20,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'lib/index.ts'),
       name: packages.name,
       // fileName: (format) => `${packages.name}.${format}.js`,
-      formats: ['es'],
+      formats: ['es', 'umd'],
     },
     minify: 'terser' // 混淆器
   },
