@@ -3,6 +3,12 @@
  */
 export * as api from './api'
 
+/**
+ * SDK
+ */
 export {defineRender, defineUpdate} from './sdk'
 
-// export * as html from './html'
+/**
+ * 工具集
+ */
+export * as utils from './utils'

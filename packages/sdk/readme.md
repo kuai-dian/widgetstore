@@ -21,16 +21,18 @@
 defineRender(render, 是否立刻渲染) 定义渲染函数
  * @param render {IRender} 渲染函数
  * @param isRenderingNow {boolean} 是否立即渲染，建议生产不使用，开发阶段将其设置为true
+ * @param isSingle {boolean} 是否首次渲染和二次更新同方法，默认分离方法 如果传递为 true 则无需定义 `defineUpdate`
 
 ```ts
 import { defineRender } from '@notion-pet/sdk';
 import { render } from 'preact';
 
 const isDev = process.env.NODE_ENV === 'development'
+const isSingle = false // 是否首次渲染和二次更新同方法，默认分离方法
 
 defineRender(({options: {}, data: {}}) => {
   render(<App options={options} data={data} />)
-}, isDev)
+}, isDev, isSingle)
 ```
 
 ### defineUpdate
@@ -57,6 +59,52 @@ export default () => {
     {state.value}
   </div>
 }
+```
+
+### utils
+
+常用工具函数
+
+**使用示例**
+
+replaceAll
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+utils.replaceAll('a', 'b', 'abc') // 'bbc'
+```
+
+uuid
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+const uuid = utils.uuid() // 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+```
+
+uniqueTimeout 唯一的 `setTimeout`
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+const timer = utils.uniqueTimeout()
+
+timer(() => {
+  console.log('hello')
+}, 1000)
+```
+
+uniqueInterval 唯一的 `setInterval`
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+const timer = utils.uniqueInterval()
+
+timer(() => {
+  console.log('hello')
+}, 1000)
 ```
 
 ### api
