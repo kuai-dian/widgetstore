@@ -18,22 +18,24 @@
 
 **使用示例**
 
-defineRender(render, 是否立刻渲染) 定义渲染函数
- * @param render {IRender} 渲染函数
- * @param isRenderingNow {boolean} 是否立即渲染，建议生产不使用，开发阶段将其设置为true
- * @param isSingle {boolean} 是否首次渲染和二次更新同方法，默认分离方法 如果传递为 true 则无需定义 `defineUpdate`
+defineRender
+  * @param render {IRender} 渲染函数
+  * @param options {IDefineRenderOptions} 参数
+    - options.isDevMode 是否为开发模式，立即渲染，开发阶段将其设置为true，一般传递 `process.env.NODE_ENV === 'development'`
+    - options.isSingle 是否首次渲染和二次更新同方法，默认分离方法 如果传递为 true 则无需定义 `defineUpdate`
 
 ```ts
 import { defineRender } from '@notion-pet/sdk';
 import { render } from 'preact';
 
-const isDev = process.env.NODE_ENV === 'development'
-const isSingle = false // 是否首次渲染和二次更新同方法，默认分离方法
+const isDevMode = process.env.NODE_ENV === 'development'
+const isSingle = false
 
 defineRender(({options: {}, data: {}}) => {
   render(<App options={options} data={data} />)
-}, isDev, isSingle)
+}, {isDevMode, isSingle})
 ```
+
 
 ### defineUpdate
 

@@ -1,12 +1,18 @@
 import { useSubscribe } from './subscribe';
 
+enum apiEvents {
+  onSaveWidgetData = "onSaveWidgetData",
+  onGetWidgetData = "onGetWidgetData",
+  onRequestWithAxios = "onRequestWithAxios",
+}
+
 /**
  * 更新方法
  * @param props {any} 参数
  */
 export const update = (props: any) => {
   const {call} = useSubscribe()
-  call('onSaveWidgetData', props)
+  call(apiEvents.onSaveWidgetData, props)
 }
 
 /**
@@ -15,7 +21,7 @@ export const update = (props: any) => {
  */
 export const get = () => new Promise((resolve, reject) => {
   const {call} = useSubscribe()
-  call('onGetWidgetData', {resolve, reject})
+  call(apiEvents.onGetWidgetData, {resolve, reject})
 })
 
 /**
@@ -24,7 +30,7 @@ export const get = () => new Promise((resolve, reject) => {
  */
 export const axios = (config: any = {}) => new Promise((resolve, reject) => {
   const {call} = useSubscribe()
-  call('onRequestWithAxios', {config, callback: (params) => {
+  call(apiEvents.onRequestWithAxios, {config, callback: (params) => {
     if (params.success) {
       resolve(params)
     } else {

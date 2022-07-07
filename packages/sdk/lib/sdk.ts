@@ -5,21 +5,44 @@ export interface IRenderProps {
   data: object
 }
 
+enum renderEvents {
+  onRenderWidget = "onRenderWidget",
+  onWidgetsRenderDone = "onWidgetsRenderDone",
+  onWeightUpdate = "onWeightUpdate",
+}
+
+/**
+ * 渲染函数
+ */
 type IRender = (IRenderProps: IRenderProps) => void
 
 /**
  * 定义渲染方法
- * @param render {IRender} 渲染函数
- * @param isRenderingNow {boolean} 是否立即渲染，建议生产不使用，开发阶段将其设置为true
- * @param isSingle {boolean} 是否首次渲染和二次更新同方法，默认分离方法
  */
-export const defineRender = (render: IRender, isRenderingNow: boolean = false, isSingle = false) => {
+interface IDefineRenderOptions {
+  /**
+   * 是否为开发模式，立即渲染，开发阶段将其设置为true，一般传递 `process.env.NODE_ENV === 'development'`
+   */
+  isDevMode?: boolean
+  /**
+   * 是否首次渲染和二次更新同方法，默认分离方法
+   */
+  isSingle?: boolean
+}
+
+/**
+ * 定义渲染方法
+ * @param render {IRender} 渲染函数
+ * @param options {IDefineRenderOptions} 参数
+ */
+export const defineRender = (render: IRender, options: IDefineRenderOptions) => {
+  const {isDevMode = false, isSingle = false} = options
   const {bind, call} = useSubscribe()
-  bind('onRenderWidget', render)
-  isRenderingNow && render({options: undefined, data: undefined})
-  call('onWidgetsRenderDone')
+  bind(renderEvents.onRenderWidget, render)
+  isDevMode && render({options: undefined, data: undefined})
+  call(renderEvents.onWidgetsRenderDone)
   if (isSingle) {
-    bind('onWeightUpdate', render)
+    bind(renderEvents.onWeightUpdate, render)
   }
 }
 
@@ -29,5 +52,5 @@ export const defineRender = (render: IRender, isRenderingNow: boolean = false, i
  */
 export const defineUpdate = (update: IRender) => {
   const {bind} = useSubscribe()
-  bind('onWeightUpdate', update)
+  bind(renderEvents.onWeightUpdate, update)
 }
