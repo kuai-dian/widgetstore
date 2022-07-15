@@ -4,8 +4,12 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "version": "pnpm -r --parallel version -- prerelease --preid beta"
+    "version": "changeset && changeset version",
+    "clean": "rm -r node_modules packages/**/node_modules || true",
+    "build": "pnpm -r build",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.23.2"
   }
 }
