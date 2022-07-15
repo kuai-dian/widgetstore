@@ -1,12 +1,18 @@
 {
   "name": "@notion-pet/fe",
+  "version": "0.0.1",
   "private": true,
   "license": "ISC",
   "scripts": {
-    "build": "lerna bootstrap && lerna run build",
-    "publish": "lerna publish"
+    "version": "changeset && changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish --registry=https://registry.npmjs.com/",
+    "changeset": "changeset",
+    "clean": "rm -r node_modules packages/**/node_modules || true",
+    "build": "pnpm -r build",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@changesets/cli": "^2.23.2"
   }
 }
