@@ -1,12 +1,11 @@
 {
   "name": "@notion-pet/fe",
+  "version": "0.0.1",
   "private": true,
   "license": "ISC",
   "scripts": {
-    "build": "lerna bootstrap && lerna run build",
-    "publish": "lerna publish"
+    "version": "pnpm -r --parallel version -- prerelease --preid beta"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
   }
 }
