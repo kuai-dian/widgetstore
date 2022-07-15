@@ -4,10 +4,10 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "version": "changeset && changeset version",
     "release": "pnpm build && pnpm release:only",
-    "release:only": "changeset publish --registry=https://registry.npmjs.com/",
     "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release:only": "changeset publish --registry=https://registry.npmjs.com/",
     "clean": "rm -r node_modules packages/**/node_modules || true",
     "build": "pnpm -r build",
     "preinstall": "npx only-allow pnpm"
