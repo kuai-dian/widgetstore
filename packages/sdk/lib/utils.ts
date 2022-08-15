@@ -70,7 +70,7 @@ const elementTypeMapping = {
  */
 export const mountElement = (
   element: "script" | "style" = "script",
-  { id, content, url }: { id: string; content: string; url: string }
+  { id, content, url }: { id: string; content?: string; url?: string }
 ) => {
   const el = document.getElementById(`#${id}`);
   el && el.remove();
@@ -87,7 +87,7 @@ export const mountElement = (
  * @param id {string} 元素id
  * @param param1 元素内容
  */
-export const mountCSS = (id: string, { url = "", content = "" }: {content: string; url: string}) => {
+export const mountCSS = ({id = 'rootCSS',  url = "", content = "" }: {id?: string, content?: string; url?: string}) => {
   mountElement("style", {
     id,
     content,
@@ -100,7 +100,7 @@ export const mountCSS = (id: string, { url = "", content = "" }: {content: strin
  * @param id {string} 元素id
  * @param param1 元素内容
  */
-export const mountJS = (id: string, { url = "", content = "" }: {content: string; url: string}) => {
+export const mountJS = ({id = 'rootJS', url = "", content = "" }: {id?: string, content: string; url: string}) => {
   mountElement("script", {
     id,
     content,

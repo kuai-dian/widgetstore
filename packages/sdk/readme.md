@@ -130,7 +130,8 @@ utils.mountElement('script', {
 ```ts
 import { utils } from '@notion-pet/sdk';
 
-utils.mountCSS('rootCSS', {
+utils.mountCSS({
+  id: 'rootCSS',
   content: `
     // ...css code
   `
@@ -144,7 +145,8 @@ utils.mountCSS('rootCSS', {
 ```ts
 import { utils } from '@notion-pet/sdk';
 
-utils.mountJS('rootJS', {
+utils.mountJS({
+  id: 'rootJS',
   content: `
     // ...js code
   `
