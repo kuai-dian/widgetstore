@@ -30,11 +30,15 @@ export const get = () => new Promise((resolve, reject) => {
  */
 export const axios = (config: any = {}) => new Promise((resolve, reject) => {
   const {call} = useSubscribe()
-  call(apiEvents.onRequestWithAxios, {config, callback: (params) => {
-    if (params.success) {
-      resolve(params)
-    } else {
-      reject(params)
-    }
-  }})
+  if (process.env.NODE_ENV === 'development') {
+    axios(config).then(resolve).catch(reject)
+  } else {
+    call(apiEvents.onRequestWithAxios, {config, callback: (params) => {
+      if (params.success) {
+        resolve(params)
+      } else {
+        reject(params)
+      }
+    }})
+  }
 })

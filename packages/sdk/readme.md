@@ -109,6 +109,50 @@ timer(() => {
 }, 1000)
 ```
 
+挂载CSS或JS
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+// script | style
+utils.mountElement('script', {
+  id: 'rootJS',
+  content: `
+    // ...js code
+  `,
+  // or
+  // url: "https://xxx.com/xxx.js"
+})
+```
+
+挂载CSS[语法糖]
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+utils.mountCSS('rootCSS', {
+  content: `
+    // ...css code
+  `
+  // or
+  // url: "https://xxx.com/xxx.css"
+})
+```
+
+挂载JS[语法糖]
+
+```ts
+import { utils } from '@notion-pet/sdk';
+
+utils.mountJS('rootJS', {
+  content: `
+    // ...js code
+  `
+  // or
+  // url: "https://xxx.com/xxx.js"
+})
+```
+
 ### api
 
 组件数据交互-接口请求
