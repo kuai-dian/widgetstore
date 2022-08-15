@@ -1,5 +1,11 @@
 # @notionpet/sdk
 
+## 0.2.5
+
+### Patch Changes
+
+- RE PUBLISH
+
 ## 0.2.4
 
 ### Patch Changes
