@@ -1,0 +1,14 @@
+{
+  "include": ["lib/**/*.ts", "lib/**/*.d.ts"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "isolatedModules": true,
+    "types": ["vite/client", "node"],
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": false,
+    "outDir": "./types",
+    "emitDeclarationOnly": true
+  }
+}

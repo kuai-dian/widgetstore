@@ -1,0 +1,35 @@
+{
+  "name": "@notionpet/request",
+  "title": "@notionpet/request",
+  "version": "0.0.1",
+  "private": false,
+  "main": "dist/lib/request.umd.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "main": "dist/lib/request.es.js",
+    "typings": "dist/lib/index.d.ts"
+  },
+  "repository": "https://github.com/kuai-dian/notion-pet/tree/master/packages/request",
+  "description": "",
+  "scripts": {
+    "dev": "vite build",
+    "build": "vite build",
+    "start": "vite build --watch",
+    "release": "pnpm run build && pnpm publish --no-git-checks"
+  },
+  "author": "胡俊平",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.9",
+    "axios": "^0.27.2",
+    "eslint": "^8.9.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.12",
+    "vite-plugin-dts": "^0.9.9"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0"
+  }
+}
