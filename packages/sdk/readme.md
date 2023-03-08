@@ -233,22 +233,9 @@ try {
 import { TextElement } from '@notion-pet/sdk';
 import { render } from 'preact';
 
-render(() => {
-  const instance = new TextElement({
-    value: 'hello world',
-    color: '#000',
-    fontSize: '12px',
-    fontWeight: 'bold',
-    lineHeight: '20px',
-    textAlign: 'center',
-    textDecoration: 'underline',
-    textIndent: '10px',
-    textOverflow: 'ellipsis',
-    textShadow: '0 0 1px #000',
-    whiteSpace: 'nowrap',
-    wordBreak: 'break-all',
-    wordWrap: 'break-word',
-  })
+render((options) => {
+  // 从配置项集合中取出文本配置项
+  const instance = new TextElement(options.text)
   return <div onLoadCapture={(e) => instance.render(e.target)} />
 })
 ```
@@ -263,22 +250,9 @@ render(() => {
 import { RectElement } from '@notion-pet/sdk';
 import { render } from 'preact';
 
-render(() => {
-  const instance = new RectElement({
-    value: 'hello world',
-    color: '#000',
-    fontSize: '12px',
-    fontWeight: 'bold',
-    lineHeight: '20px',
-    textAlign: 'center',
-    textDecoration: 'underline',
-    textIndent: '10px',
-    textOverflow: 'ellipsis',
-    textShadow: '0 0 1px #000',
-    whiteSpace: 'nowrap',
-    wordBreak: 'break-all',
-    wordWrap: 'break-word',
-  })
+render((options) => {
+  // 从配置项集合中取出矩形容器配置项
+  const instance = new RectElement(options.rect)
   return <div onLoadCapture={(e) => instance.render(e.target)} />
 })
 ```

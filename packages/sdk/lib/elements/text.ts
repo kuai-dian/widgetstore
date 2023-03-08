@@ -17,15 +17,13 @@ export namespace TextElementType {
 }
 
 export class TextElement extends BaseElement {
-    public target: HTMLElement;
     constructor(options: TextElementType.Options) {
         super(options);
     }
 
     public setup(element: HTMLElement) {
         const { value, color, fontSize, fontWeight, fontFamily, textAlign, lineHeight, letterSpacing, textDecoration, textShadow, opacity } = this.options;
-        this.target = document.createElement('span');
-        this.target.setAttribute('style', `
+        element.setAttribute('style', `
             color: ${color}; 
             font-size: ${fontSize}px; 
             font-weight: ${fontWeight}; 
@@ -37,9 +35,8 @@ export class TextElement extends BaseElement {
             text-shadow: ${textShadow}; 
             opacity: ${opacity};
         `);
-        this.target.innerText = value;
         element.innerHTML = '';
-        element.appendChild(this.target);
-        return this.target;
+        element.innerHTML = value;
+        return element;
     }
 }

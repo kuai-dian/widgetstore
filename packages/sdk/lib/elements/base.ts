@@ -1,6 +1,5 @@
 export namespace BaseElementType {
     export interface Options {
-        value: string; // 内容
         opacity: number; // 透明度
         [key: string]: any;
     }
@@ -19,13 +18,13 @@ export class BaseElement {
     // 待子类实现的方法 setup
     public setup(element: HTMLElement) {
         const { value, opacity } = this.options;
-        this.target = document.createElement('div');
-        this.target.setAttribute('style', `
+        element = document.createElement('div');
+        // todo 设置样式 兼容历史已有样式列表
+        element.setAttribute('style', `
             opacity: ${opacity};
         `);
-        this.target.innerHTML = value;
         element.innerHTML = '';
-        element.appendChild(this.target);
+        element.innerHTML = value;
         return this.target;
     }
     
