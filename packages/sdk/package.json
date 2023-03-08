@@ -8,7 +8,7 @@
     "@notionpet",
     "notion sdk"
   ],
-  "version": "2.0.1-beta.2",
+  "version": "2.0.1-beta.6",
   "private": false,
   "publishConfig": {
     "access": "public",
@@ -19,19 +19,19 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/@notionpet/sdk.umd.js",
-  "module": "./dist/@notionpet/sdk.es.js",
-  "types": "./dist/sdk.d.ts",
+  "main": "./dist/sdk.umd.js",
+  "module": "./dist/sdk.es.js",
+  "types": "./dist/lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/@notionpet/sdk.es.js",
-      "require": "./dist/@notionpet/sdk.umd.js",
-      "types": "./dist/sdk.d.ts"
+      "import": "./dist/sdk.es.js",
+      "require": "./dist/sdk.umd.js",
+      "types": "./dist/lib/index.d.ts"
     },
     "./dist/*": {
-      "import": "./dist/@notionpet/sdk.es.js",
-      "require": "./dist/@notionpet/sdk.umd.js",
-      "types": "./dist/sdk.d.ts"
+      "import": "./dist/sdk.es.js",
+      "require": "./dist/sdk.umd.js",
+      "types": "./dist/lib/index.d.ts"
     }
   },
   "scripts": {

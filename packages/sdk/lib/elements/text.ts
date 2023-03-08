@@ -21,6 +21,22 @@ export class TextElement extends BaseElement {
         super(options);
     }
 
+    public get defaultOptions(): TextElementType.Options {
+        return {
+            value: 'Hello World! This is a text element.',
+            color: '#000000',
+            fontSize: 16,
+            fontWeight: 400,
+            fontFamily: 'sans-serif',
+            textAlign: 'left',
+            lineHeight: 20,
+            letterSpacing: 0,
+            textDecoration: 'none',
+            textShadow: 'none',
+            opacity: 1,
+        };
+    }
+
     public setup(element: HTMLElement) {
         const { value, color, fontSize, fontWeight, fontFamily, textAlign, lineHeight, letterSpacing, textDecoration, textShadow, opacity } = this.options;
         element.setAttribute('style', `

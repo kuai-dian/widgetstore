@@ -12,7 +12,13 @@ export class BaseElement {
     public options: BaseElementType.Options;
     public target: HTMLElement;
     constructor(options: BaseElementType.Options) {
-        this.options = options;
+        this.options = Object.assign({}, this.defaultOptions, options);
+    }
+
+    public get defaultOptions(): BaseElementType.Options {
+        return {
+            opacity: 1,
+        };
     }
 
     // 待子类实现的方法 setup

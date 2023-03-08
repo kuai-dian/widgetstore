@@ -17,8 +17,17 @@ export class RectElement extends BaseElement {
         super(options);
     }
 
+    public get defaultOptions(): RectElementType.Options {
+        return {
+            background: '#ffffff',
+            borderRadius: 0,
+            border: 'none',
+            opacity: 1,
+        };
+    }
+
     public setup(element: HTMLElement) {
-        const { value, background, borderRadius, border, opacity } = this.options;
+        const { background, borderRadius, border, opacity } = this.options;
         element.setAttribute('style', `
             background: ${background};
             border-radius: ${borderRadius}px;
