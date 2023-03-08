@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './axios-manager';
 import isFunction from 'lodash/isFunction';
 import isUndefined from 'lodash/isUndefined';
 import { hex_md5 } from '@/utils/md5';

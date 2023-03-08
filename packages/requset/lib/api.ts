@@ -1,12 +1,38 @@
-type IPetApi = {
+import PetRequest from "./index"
+
+export type IPetApi = {
+  /**
+   * when的值为false的api将会被过滤不用
+   * @example when: () => import.meta.env.DEV
+   * @example when: import.meta.env.DEV
+   * @example when: process.env.NODE_ENV === 'development'
+   */
   when: boolean | (() => boolean)
+  /**
+   * API地址
+   * @example url: 'https://localhost:8080'
+   */
   api: string
 }
 
-type IApis = string | IPetApi[]
-type IUseApiKey = number | undefined
+export type IApis = string | IPetApi[]
+export type IUseApiKey = number | undefined
 
-type IPetApis = {
+export type IPetApis = {
+  /**
+   * API信息配置，支持使用单API或模块化多API
+   * @description 模块化API时，将采用第一个when满足条件的API项作为项目运行所需要的API
+   * @example apis: 'https://localhost:8080'
+   * @example ```javascript
+apis: [{
+  url: 'https://localhost:8080',
+  when: process.env.NODE_ENV === 'development'
+}, {
+  url: 'https://api.bblog.cc',
+  when: process.env.NODE_ENV === 'production'
+}]
+```
+   */
   apis: string | IPetApi[]
   /**
    * 强制使用API Key
@@ -18,9 +44,11 @@ type IPetApis = {
  * PetRequestApiManager
  */
 export default class PetRequestApiManager {
+  public root: PetRequest
   public apis: IApis = ''
   public useApiKey: IUseApiKey
-  constructor(options: IPetApis) {
+  constructor(options: IPetApis, root: PetRequest) {
+    this.root = root
     this.apis = options.apis
     this.useApiKey = options.useApiKey
   }
