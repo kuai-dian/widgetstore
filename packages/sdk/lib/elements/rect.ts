@@ -15,15 +15,14 @@ export namespace RectElementType {
 export class RectElement extends BaseElement {
     constructor(options: RectElementType.Options) {
         super(options);
+        this.options = Object.assign({}, RectElement.defaultOptions, options);
     }
 
-    public get defaultOptions(): RectElementType.Options {
-        return {
-            background: '#ffffff',
-            borderRadius: 0,
-            border: 'none',
-            opacity: 1,
-        };
+    static defaultOptions = {
+        background: '#ffffff',
+        borderRadius: 0,
+        border: 'none',
+        opacity: 1,
     }
 
     public setup(element: HTMLElement) {

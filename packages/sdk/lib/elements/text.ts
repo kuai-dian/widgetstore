@@ -19,22 +19,21 @@ export namespace TextElementType {
 export class TextElement extends BaseElement {
     constructor(options: TextElementType.Options) {
         super(options);
+        this.options = Object.assign({}, TextElement.defaultOptions, options);
     }
 
-    public get defaultOptions(): TextElementType.Options {
-        return {
-            value: 'Hello World! This is a text element.',
-            color: '#000000',
-            fontSize: 16,
-            fontWeight: 400,
-            fontFamily: 'sans-serif',
-            textAlign: 'left',
-            lineHeight: 20,
-            letterSpacing: 0,
-            textDecoration: 'none',
-            textShadow: 'none',
-            opacity: 1,
-        };
+    static defaultOptions = {
+        value: 'Hello World! This is a text element.',
+        color: '#000000',
+        fontSize: 16,
+        fontWeight: 400,
+        fontFamily: 'sans-serif',
+        textAlign: 'left',
+        lineHeight: 20,
+        letterSpacing: 0,
+        textDecoration: 'none',
+        textShadow: 'none',
+        opacity: 1,
     }
 
     public setup(element: HTMLElement) {
