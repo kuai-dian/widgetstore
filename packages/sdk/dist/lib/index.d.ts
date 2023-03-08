@@ -10,4 +10,8 @@ export { defineRender, defineUpdate } from './sdk';
  * 工具集
  */
 export * as utils from './utils';
+/**
+ * 元素
+ */
+export * as elements from './elements';
 //# sourceMappingURL=index.d.ts.map

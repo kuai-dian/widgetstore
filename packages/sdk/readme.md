@@ -2,7 +2,7 @@
 
 ## 什么是 `@notionpet/sdk`？
 
-`@notionpet/sdk` 是开发组件用的工具包, 结合 [Notion.pet](https://Notion.pet) 平台，开发好后的组件可以发布到该平台然后通过 embed 嵌入notion软件中。
+`@notionpet/sdk` 是开发组件用的工具包, 结合 [组件世界](https://cn.widgetstore.net) 平台，开发好后的组件可以发布到该平台然后通过 embed 嵌入notion软件中。
 
 ## 🏄‍♀️  组件渲染流程
 
@@ -219,6 +219,42 @@ try {
 } catch(error) {
   console.error(error)
 }
+```
+
+# Element
+
+## TextELement
+
+文本元素
+
+**使用示例**
+
+```ts
+import { TextElement } from '@notion-pet/sdk';
+import { render } from 'preact';
+
+render((options) => {
+  // 从配置项集合中取出文本配置项
+  const instance = new TextElement(options.text)
+  return <div onLoadCapture={(e) => instance.render(e.target)} />
+})
+```
+
+## RectELement
+
+矩形元素
+
+**使用示例**
+
+```ts
+import { RectElement } from '@notion-pet/sdk';
+import { render } from 'preact';
+
+render((options) => {
+  // 从配置项集合中取出矩形容器配置项
+  const instance = new RectElement(options.rect)
+  return <div onLoadCapture={(e) => instance.render(e.target)} />
+})
 ```
 
 # 资料
