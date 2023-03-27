@@ -61,24 +61,49 @@ export const uniqueInterval = () => {
 const elementTypeMapping = {
   script: "text/javascript",
   style: "text/css",
+  link: "text/css",
 };
 
+interface MountElementOptions {
+  id: string;
+  content?: string;
+  url?: string;
+  notReRender?: boolean;
+}
 /**
  * 挂载一个元素
  * @param element {any} 元素类型 script或style
  * @param param1 元素内容
  */
 export const mountElement = (
-  element: "script" | "style" = "script",
-  { id, content, url }: { id: string; content?: string; url?: string }
+  element: "script" | "link" | 'style' = "script",
+  { id, content, url, notReRender }: MountElementOptions
 ) => {
   const el = document.getElementById(`#${id}`);
-  el && el.remove();
-  const instance = document.createElement("script");
+  // 如果存在元素，且不需要重新渲染，则直接返回
+  if (el && !notReRender) {
+    el.remove();
+  } else if (el) {
+    return;
+  }
+  const instance = document.createElement(element);
   instance.setAttribute("id", id);
   instance.setAttribute("type", elementTypeMapping[element]);
-  content && (instance.innerHTML = content);
-  url && (instance.src = url);
+  switch (element) {
+    case 'link':
+      instance.setAttribute("rel", "stylesheet");
+      instance.setAttribute("href", url);
+      break;
+    case 'script':
+      url && instance.setAttribute("src", url);
+      content && (instance.innerHTML = content);
+      break;
+    case 'style':
+      instance.innerHTML = content;
+      break;
+    default:
+      break;
+  }
   document.head.appendChild(instance);
 };
 
@@ -87,11 +112,10 @@ export const mountElement = (
  * @param id {string} 元素id
  * @param param1 元素内容
  */
-export const mountCSS = ({id = 'rootCSS',  url = "", content = "" }: {id?: string, content?: string; url?: string}) => {
-  mountElement("style", {
+export const mountCSS = ({id = 'rootCSS',  ...options }: MountElementOptions, isLink?: boolean) => {
+  mountElement(isLink ? "link" : 'style', {
     id,
-    content,
-    url,
+    ...options,
   });
 };
 
@@ -100,11 +124,10 @@ export const mountCSS = ({id = 'rootCSS',  url = "", content = "" }: {id?: strin
  * @param id {string} 元素id
  * @param param1 元素内容
  */
-export const mountJS = ({id = 'rootJS', url = "", content = "" }: {id?: string, content: string; url: string}) => {
+export const mountJS = ({id = 'rootJS',  ...options }: MountElementOptions) => {
   mountElement("script", {
     id,
-    content,
-    url,
+    ...options
   });
 };
 

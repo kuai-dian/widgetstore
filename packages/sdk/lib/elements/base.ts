@@ -14,6 +14,12 @@ export namespace BaseElementType {
 export class BaseElement {
     public options: BaseElementType.Options;
     public target: HTMLElement;
+    /**
+     * CDN 前缀 需要以 / 结尾
+     * @description 用于加载资源, 比如CSS、图片等
+     * @example window.CDNPrefix = 'https://cdn.notion.pet/'
+     */
+    public CDNPrefix: string = window.CDNPrefix || '/';
     constructor(options: BaseElementType.Options) {
         this.options = Object.assign({}, BaseElement.defaultOptions, options);
     }
@@ -27,9 +33,7 @@ export class BaseElement {
         const { value, opacity } = this.options;
         element = document.createElement('div');
         // todo 设置样式 兼容历史已有样式列表
-        element.setAttribute('style', `
-            opacity: ${opacity};
-        `);
+        element.style.opacity = `${opacity}`;
         element.innerHTML = '';
         element.innerHTML = value;
         return this.target;
