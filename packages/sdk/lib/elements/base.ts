@@ -1,12 +1,15 @@
 export namespace BaseElementType {
     export interface Options {
-        opacity: number; // 透明度
+        /**
+         * 透明度
+         */
+        opacity: number;
         [key: string]: any;
     }
 }
 
 /**
- * 矩形 容器
+ * 元素基类
  */
 export class BaseElement {
     public options: BaseElementType.Options;
@@ -32,6 +35,11 @@ export class BaseElement {
         return this.target;
     }
     
+    /**
+     * 渲染
+     * @param element HTMLElement
+     * @returns 
+     */
     public render(element: HTMLElement) {
         if (!element) {
             throw new Error('element is required');
@@ -39,11 +47,18 @@ export class BaseElement {
         return this.setup(element);
     }
     
+    /**
+     * 更新
+     * @param options 
+     */
     public update(options: BaseElementType.Options) {
         this.options = options;
         this.render && this.render(this.target);
     }
 
+    /**
+     * 销毁
+     */
     public destroy() {
         this.target.remove();
     }

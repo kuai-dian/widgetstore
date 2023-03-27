@@ -16,4 +16,4 @@ export * as utils from './utils'
 /**
  * 元素
  */
-export * as elements from './elements'
+export * as elements from './elements/index'

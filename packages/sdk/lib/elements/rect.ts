@@ -1,11 +1,23 @@
-import { BaseElement } from "./base";
+import { BaseElement, BaseElementType } from "./base";
 
 export namespace RectElementType {
-    export interface Options {
-        background: string; // 背景
-        borderRadius: number; // 圆角
-        border: string; // 边框
-        opacity: number; // 透明度
+    export interface Options extends BaseElementType.Options {
+        /**
+         * 背景
+         */
+        background: string;
+        /**
+         * 圆角
+         */
+        borderRadius: number;
+        /**
+         * 边框
+         */
+        border: string;
+        /**
+         * 阴影
+         */
+        boxShadow: string;
     }
 }
 
@@ -18,20 +30,30 @@ export class RectElement extends BaseElement {
         this.options = Object.assign({}, RectElement.defaultOptions, options);
     }
 
+    /**
+     * 默认配置
+     */
     static defaultOptions = {
         background: '#ffffff',
         borderRadius: 0,
         border: 'none',
         opacity: 1,
+        boxShadow: 'none',
     }
 
+    /**
+     * 渲染
+     * @param element HTMLElement
+     * @returns HTMLElement
+     */
     public setup(element: HTMLElement) {
-        const { background, borderRadius, border, opacity } = this.options;
+        const { background, borderRadius, border, opacity, boxShadow } = this.options;
         element.setAttribute('style', `
             background: ${background};
             border-radius: ${borderRadius}px;
             border: ${border};
             opacity: ${opacity};
+            box-shadow: ${boxShadow};
         `);
         return element;
     }
