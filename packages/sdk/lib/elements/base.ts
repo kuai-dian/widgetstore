@@ -46,7 +46,7 @@ export class BaseElement {
      */
     public render(element: HTMLElement) {
         if (!element) {
-            throw new Error('element is required');
+            return;
         }
         return this.setup(element);
     }
