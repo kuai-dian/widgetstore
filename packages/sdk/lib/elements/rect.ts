@@ -48,13 +48,13 @@ export class RectElement extends BaseElement {
      */
     public setup(element: HTMLElement) {
         const { background, borderRadius, border, opacity, boxShadow } = this.options;
-        element.setAttribute('style', `
-            background: ${background};
-            border-radius: ${borderRadius}px;
-            border: ${border};
-            opacity: ${opacity};
-            box-shadow: ${boxShadow};
-        `);
+       
+        element.style.background = background;
+        element.style.borderRadius = `${borderRadius}px`;
+        element.style.border = border;
+        element.style.opacity = `${opacity}`;
+        element.style.boxShadow = boxShadow;
+
         return element;
     }
 }

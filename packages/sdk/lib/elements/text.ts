@@ -124,7 +124,7 @@ export class TextElement extends BaseElement {
      * @returns HTMLElement
      */
     public setup(element: HTMLElement) {
-        const { value, fontSize, fontWeight, fontFamily, textAlign, lineHeight, letterSpacing, textDecoration, textShadow, opacity } = this.options;
+        const { value, fontSize, fontWeight, fontFamily, textAlign, lineHeight, letterSpacing, textDecoration, textShadow, opacity, fontColor, shadow } = this.options;
         this.drawText(element)
         this.drawFont(element)
 
@@ -137,6 +137,11 @@ export class TextElement extends BaseElement {
         element.style.textDecoration = `${textDecoration}`;
         element.style.textShadow = `${textShadow}`;
         element.style.opacity = `${opacity}`;
+
+        element.style.color = `${fontColor}`
+        if (shadow) {
+            element.style.textShadow = `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`
+        }
 
         element.innerHTML = '';
         element.innerHTML = value;
